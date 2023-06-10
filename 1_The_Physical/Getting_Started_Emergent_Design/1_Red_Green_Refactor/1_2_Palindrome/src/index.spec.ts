@@ -8,6 +8,10 @@ describe('palindrome checker', () => {
     it('knows "Mom" is a palindrome', () => {
         expect(palindromeChecker("Mom")).toEqual(true);
     });
+
+    it('knows "MoM" is a palindrome', () => {
+        expect(palindromeChecker("MoM")).toEqual(true);
+    });
 })
 
 /*
