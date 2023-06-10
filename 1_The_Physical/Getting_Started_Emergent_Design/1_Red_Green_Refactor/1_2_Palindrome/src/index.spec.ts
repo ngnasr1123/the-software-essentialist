@@ -32,6 +32,10 @@ describe('palindrome checker', () => {
     it('knows "Never Odd or Even1" is a palindrome', () => {
         expect(palindromeChecker("Never Odd or Even1")).toEqual(false);
     });
+
+    it('knows "1Never Odd or Even1" is a palindrome', () => {
+        expect(palindromeChecker("1Never Odd or Even1")).toEqual(true);
+    });
 })
 
 /*
