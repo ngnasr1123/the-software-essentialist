@@ -1,3 +1,4 @@
+import { palindromeChecker } from './index';
 
 describe('palindrome checker', () => {
     it('knows "mom" is a palindrome', () => {
