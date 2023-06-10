@@ -1,9 +1,6 @@
-export function palindromeChecker(word: string): boolean {
-    if (word.toLowerCase() === "mom") return true;
+export function palindromeChecker(phrase: string): boolean {
+    const noSpacePhrase = phrase.toLowerCase().replace(/\s+/g, '');
+    const charArray = noSpacePhrase.split('');
 
-    if (word.toLowerCase() === "xmomx") return true;
-
-    if (word.toLowerCase() === "was it a rat i saw") return true;
-
-    return false;
+    return charArray.reverse().join("") === noSpacePhrase;
 }
