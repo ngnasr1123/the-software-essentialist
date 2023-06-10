@@ -16,6 +16,10 @@ describe('palindrome checker', () => {
     it('knows "Momx" is a palindrome', () => {
         expect(palindromeChecker("Momx")).toEqual(false);
     });
+
+    it('knows "xMomx" is a palindrome', () => {
+        expect(palindromeChecker("xMomx")).toEqual(true);
+    });
 })
 
 /*
