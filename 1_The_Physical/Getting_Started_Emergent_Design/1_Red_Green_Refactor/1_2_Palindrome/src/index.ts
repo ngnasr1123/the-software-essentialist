@@ -1,3 +1,5 @@
 export function palindromeChecker(word: string): boolean {
-    return true;
+    if (word === "mom") return true;
+    
+    return false;
 }
