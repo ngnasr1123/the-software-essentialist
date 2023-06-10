@@ -1,9 +1,5 @@
 export function palindromeChecker(word: string): boolean {
-    if (word === "mom") return true;
-
-    if (word === "Mom") return true;
-
-    if (word === "MoM") return true;
+    if (word.toLowerCase() === "mom") return true;
 
     return false;
 }
