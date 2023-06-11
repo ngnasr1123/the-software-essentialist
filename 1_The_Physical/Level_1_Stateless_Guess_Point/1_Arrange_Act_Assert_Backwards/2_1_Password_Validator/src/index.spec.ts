@@ -19,6 +19,12 @@ describe('password validator', () => {
     expect(output.errors).toHaveLength(1);
     expect(output.errors[0]).toEqual("MissingDigits");
   });
+
+  it('knows Maxwell1 is a valid password', () => {
+    const output = PasswordValidator.validate('Maxwell1');
+    expect(output.result).toBeTruthy();
+    expect(output.errors).toHaveLength(0);
+  });
 })
 
 
