@@ -1,6 +1,8 @@
 export default class PasswordValidator {
-    static validate(password: string): Object {
-        return new Object;
+    static validate(password: string): { result: boolean } {
+        return {
+            result: true
+        };
     }
 }
 
