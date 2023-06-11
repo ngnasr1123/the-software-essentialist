@@ -1,8 +1,9 @@
+import PasswordValidator from './index';
 
 describe('password validator', () => {
-
-  test('hello', () => {
-    expect("between 5 and 15").toContain('5 and 15')
+  it('returns an object', () => {
+    const output = PasswordValidator.validate('maxwell1_c');
+    expect(typeof output).toBe("object");
   })
 })
 
