@@ -31,6 +31,13 @@ describe('password validator', () => {
     expect(output.errors[0]).toEqual("MissingDigits");
   });
 
+  it('knows myPassword is missing digits', () => {
+    const output = PasswordValidator.validate('myPassword');
+    expect(output.result).toBeFalsy();
+    expect(output.errors).toHaveLength(1);
+    expect(output.errors[0]).toEqual("MissingDigits");
+  });
+
   it('knows thePhysical1234567 exceeds 15 character limit', () => {
     const output = PasswordValidator.validate('thePhysical1234567');
     expect(output.result).toBeFalsy();
