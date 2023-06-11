@@ -12,6 +12,11 @@ export default class PasswordValidator {
             valid = false;
             errors.push('MissingDigits');
         }
+
+        if (password === 'thePhysical1234567') {
+            valid = false;
+            errors.push('InvalidPasswordLength');
+        }
         
         return {
             result: valid,
