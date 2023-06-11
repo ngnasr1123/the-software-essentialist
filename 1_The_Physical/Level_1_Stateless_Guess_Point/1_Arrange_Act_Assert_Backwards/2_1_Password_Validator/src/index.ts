@@ -1,7 +1,7 @@
 export default class PasswordValidator {
     static validate(password: string): { result: boolean } {
         return {
-            result: true
+            result: false
         };
     }
 }
