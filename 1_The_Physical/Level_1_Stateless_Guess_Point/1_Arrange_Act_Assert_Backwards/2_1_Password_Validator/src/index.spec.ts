@@ -17,25 +17,15 @@ describe('password validator', () => {
       expect(output.errors[0]).toEqual("MissingUppercase");
   });
 
-  it('knows maxwellTheBe is missing digits', () => {
-    const output = PasswordValidator.validate('maxwellTheBe');
-    expect(output.result).toBeFalsy();
-    expect(output.errors).toHaveLength(1);
-    expect(output.errors[0]).toEqual("MissingDigits");
-  });
-
-  it('knows Spider-man is missing digits', () => {
-    const output = PasswordValidator.validate('Spider-man');
-    expect(output.result).toBeFalsy();
-    expect(output.errors).toHaveLength(1);
-    expect(output.errors[0]).toEqual("MissingDigits");
-  });
-
-  it('knows myPassword is missing digits', () => {
-    const output = PasswordValidator.validate('myPassword');
-    expect(output.result).toBeFalsy();
-    expect(output.errors).toHaveLength(1);
-    expect(output.errors[0]).toEqual("MissingDigits");
+  it.each([
+    'maxwellTheBe',
+    'Spider-man',
+    'myPassword'
+  ])('Knows %p is missing digits', (text) => {
+      const output = PasswordValidator.validate(text);
+      expect(output.result).toBeFalsy();
+      expect(output.errors).toHaveLength(1);
+      expect(output.errors[0]).toEqual("MissingDigits");
   });
 
   it('knows thePhysical1234567 exceeds 15 character limit', () => {
