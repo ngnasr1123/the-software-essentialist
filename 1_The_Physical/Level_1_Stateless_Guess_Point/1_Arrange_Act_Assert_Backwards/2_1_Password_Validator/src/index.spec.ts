@@ -9,6 +9,7 @@ describe('password validator', () => {
   it('knows maxwell1_c is missing uppercase letters', () => {
     const output = PasswordValidator.validate('maxwell1_c');
     expect(output.result).toBeFalsy();
+    expect(output.errors).toHaveLength(1);
   });
 })
 
