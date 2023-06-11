@@ -28,25 +28,15 @@ describe('password validator', () => {
       expect(output.errors[0]).toEqual("MissingDigits");
   });
 
-  it('knows thePhysical1234567 exceeds 15 character limit', () => {
-    const output = PasswordValidator.validate('thePhysical1234567');
-    expect(output.result).toBeFalsy();
-    expect(output.errors).toHaveLength(1);
-    expect(output.errors[0]).toEqual("InvalidPasswordLength");
-  });
-
-  it('knows T1ny is less than 5 characters', () => {
-    const output = PasswordValidator.validate('T1ny');
-    expect(output.result).toBeFalsy();
-    expect(output.errors).toHaveLength(1);
-    expect(output.errors[0]).toEqual("InvalidPasswordLength");
-  });
-
-  it('knows the1stMatrixisthebest exceeds 15 character limit', () => {
-    const output = PasswordValidator.validate('the1stMatrixisthebest');
-    expect(output.result).toBeFalsy();
-    expect(output.errors).toHaveLength(1);
-    expect(output.errors[0]).toEqual("InvalidPasswordLength");
+  it.each([
+    'thePhysical1234567',
+    'T1ny',
+    'the1stMatrixisthebest'
+  ])('Knows %p is less than 5 or greater than 15 characters', (text) => {
+      const output = PasswordValidator.validate(text);
+      expect(output.result).toBeFalsy();
+      expect(output.errors).toHaveLength(1);
+      expect(output.errors[0]).toEqual("InvalidPasswordLength");
   });
 
   it('knows Maxwell1 is a valid password', () => {

@@ -1,25 +1,21 @@
 export default class PasswordValidator {
     static validate(password: string): { result: boolean, errors: string[] } {
         const errors = [];
-        let valid = true;
 
         if (!/[A-Z]/.test(password)) {
-            valid = false;
             errors.push('MissingUppercase');
         }
 
         if (!/[0-9]/.test(password)) {
-            valid = false;
             errors.push('MissingDigits');
         }
 
-        if (password === 'thePhysical1234567' || password === 'T1ny' || password === 'the1stMatrixisthebest') {
-            valid = false;
+        if (password.length < 5 || password.length > 15) {
             errors.push('InvalidPasswordLength');
         }
         
         return {
-            result: valid,
+            result: errors.length === 0,
             errors: errors
         };
     }
