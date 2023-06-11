@@ -6,25 +6,15 @@ describe('password validator', () => {
     expect(typeof output).toBe("object");
   });
 
-  it('knows maxwell1_c is missing uppercase letters', () => {
-    const output = PasswordValidator.validate('maxwell1_c');
-    expect(output.result).toBeFalsy();
-    expect(output.errors).toHaveLength(1);
-    expect(output.errors[0]).toEqual("MissingUppercase");
-  });
-
-  it('knows great_course1 is missing uppercase letters', () => {
-    const output = PasswordValidator.validate('great_course1');
-    expect(output.result).toBeFalsy();
-    expect(output.errors).toHaveLength(1);
-    expect(output.errors[0]).toEqual("MissingUppercase");
-  });
-
-  it('knows to_mastery100 is missing uppercase letters', () => {
-    const output = PasswordValidator.validate('to_mastery100');
-    expect(output.result).toBeFalsy();
-    expect(output.errors).toHaveLength(1);
-    expect(output.errors[0]).toEqual("MissingUppercase");
+  it.each([
+    'maxwell1_c',
+    'great_course1',
+    'to_mastery100'
+  ])('Knows %p is missing uppercase letters', (text) => {
+      const output = PasswordValidator.validate(text);
+      expect(output.result).toBeFalsy();
+      expect(output.errors).toHaveLength(1);
+      expect(output.errors[0]).toEqual("MissingUppercase");
   });
 
   it('knows maxwellTheBe is missing digits', () => {
