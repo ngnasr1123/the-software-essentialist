@@ -2,7 +2,7 @@ export default class PasswordValidator {
     static validate(password: string): { result: boolean, errors: string[] } {
         return {
             result: false,
-            errors: []
+            errors: ['']
         };
     }
 }
