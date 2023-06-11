@@ -20,6 +20,13 @@ describe('password validator', () => {
     expect(output.errors[0]).toEqual("MissingDigits");
   });
 
+  it('knows thePhysical1234567 exceeds 15 character limit', () => {
+    const output = PasswordValidator.validate('thePhysical1234567');
+    expect(output.result).toBeFalsy();
+    expect(output.errors).toHaveLength(1);
+    expect(output.errors[0]).toEqual("InvalidPasswordLength");
+  });
+
   it('knows Maxwell1 is a valid password', () => {
     const output = PasswordValidator.validate('Maxwell1');
     expect(output.result).toBeTruthy();
