@@ -13,7 +13,7 @@ export default class PasswordValidator {
             errors.push('MissingDigits');
         }
 
-        if (password === 'thePhysical1234567' || password === 'T1ny') {
+        if (password === 'thePhysical1234567' || password === 'T1ny' || password === 'the1stMatrixisthebest') {
             valid = false;
             errors.push('InvalidPasswordLength');
         }
