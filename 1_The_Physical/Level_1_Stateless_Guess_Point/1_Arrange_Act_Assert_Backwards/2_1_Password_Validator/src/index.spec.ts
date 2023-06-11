@@ -13,6 +13,13 @@ describe('password validator', () => {
     expect(output.errors[0]).toEqual("MissingUppercase");
   });
 
+  it('knows great_course1 is missing uppercase letters', () => {
+    const output = PasswordValidator.validate('great_course1');
+    expect(output.result).toBeFalsy();
+    expect(output.errors).toHaveLength(1);
+    expect(output.errors[0]).toEqual("MissingUppercase");
+  });
+
   it('knows maxwellTheBe is missing digits', () => {
     const output = PasswordValidator.validate('maxwellTheBe');
     expect(output.result).toBeFalsy();
