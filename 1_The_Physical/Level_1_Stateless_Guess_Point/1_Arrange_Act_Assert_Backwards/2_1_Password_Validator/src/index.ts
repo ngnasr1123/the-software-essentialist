@@ -8,7 +8,7 @@ export default class PasswordValidator {
             errors.push('MissingUppercase');
         }
 
-        if (password === 'maxwellTheBe') {
+        if (password === 'maxwellTheBe' || password === 'Spider-man') {
             valid = false;
             errors.push('MissingDigits');
         }
