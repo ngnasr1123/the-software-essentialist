@@ -1,17 +1,20 @@
 export default class PasswordValidator {
     static validate(password: string): { result: boolean, errors: string[] } {
         const errors = [];
+        let valid = true;
 
         if (password === 'maxwell1_c') {
+            valid = false;
             errors.push('MissingUppercase');
         }
 
         if (password === 'maxwellTheBe') {
+            valid = false;
             errors.push('MissingDigits');
         }
         
         return {
-            result: false,
+            result: valid,
             errors: errors
         };
     }
