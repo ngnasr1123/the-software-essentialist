@@ -45,8 +45,12 @@ describe('password validator', () => {
     expect(output.errors).toHaveLength(3);
   });
 
-  it('knows Maxwell1 is a valid password', () => {
-    const output = PasswordValidator.validate('Maxwell1');
+  it.each([
+    'Maxwell1',
+    'validPwd897',
+    '12threeFour'
+  ])('Knows %p is less than 5 or greater than 15 characters', (text) => {
+    const output = PasswordValidator.validate(text);
     expect(output.result).toBeTruthy();
     expect(output.errors).toHaveLength(0);
   });
