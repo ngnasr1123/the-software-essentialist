@@ -39,6 +39,12 @@ describe('password validator', () => {
       expect(output.errors[0]).toEqual("InvalidPasswordLength");
   });
 
+  it('knows max is too short, missing uppercase letters, and missing digits', () => {
+    const output = PasswordValidator.validate('max');
+    expect(output.result).toBeFalsy();
+    expect(output.errors).toHaveLength(3);
+  });
+
   it('knows Maxwell1 is a valid password', () => {
     const output = PasswordValidator.validate('Maxwell1');
     expect(output.result).toBeTruthy();
