@@ -21,5 +21,10 @@ describe('stats calculator', () => {
             const output = calculateStats([2, 4, 21, -8, 53, 40]);
             expect(output.count).toEqual(6);
         });
+
+        it('knows 18.666666666667 is the average', () => {
+            const output = calculateStats([2, 4, 21, -8, 53, 40]);
+            expect(output.avg).toEqual(18.666666666667);
+        });
     });
 })
