@@ -8,10 +8,11 @@ export type Stats = {
 export function calculateStats(sequence: number[]): Stats {
     const sortedSequence = sequence.sort((a, b) => a - b);
     const count = sortedSequence.length;
+    const total = sequence.reduce((accumulator, curr) => accumulator + curr, 0);
     return {
         min: sortedSequence[0],
         max: sortedSequence[count - 1],
         count,
-        avg: 18.666666666667
+        avg: parseFloat((total/count).toFixed(12))
     };
 }

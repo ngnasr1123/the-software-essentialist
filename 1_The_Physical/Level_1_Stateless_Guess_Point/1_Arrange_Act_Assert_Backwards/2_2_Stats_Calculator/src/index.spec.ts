@@ -40,5 +40,9 @@ describe('stats calculator', () => {
         it('knows the sequence has 4 numbers', () => {
             expect(output.count).toEqual(4);
         });
+
+        it('knows 250 is the average', () => {
+            expect(output.avg).toEqual(250);
+        });
     });
 })
