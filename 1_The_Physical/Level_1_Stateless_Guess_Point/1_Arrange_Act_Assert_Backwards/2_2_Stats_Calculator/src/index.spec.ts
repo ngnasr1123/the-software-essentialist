@@ -36,5 +36,9 @@ describe('stats calculator', () => {
         it('knows 1000 is the maximum value', () => {
             expect(output.max).toEqual(1000);
         });
+
+        it('knows the sequence has 4 numbers', () => {
+            expect(output.count).toEqual(4);
+        });
     });
 })

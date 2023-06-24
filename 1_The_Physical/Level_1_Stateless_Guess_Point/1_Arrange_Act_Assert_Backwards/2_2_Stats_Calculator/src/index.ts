@@ -11,7 +11,7 @@ export function calculateStats(sequence: number[]): Stats {
     return {
         min: sortedSequence[0],
         max: sortedSequence[count - 1],
-        count: 6,
+        count,
         avg: 18.666666666667
     };
 }
