@@ -1,3 +1,5 @@
-export function calculateStats(sequence: number[]): Object {
-    return {};
+export function calculateStats(sequence: number[]): { min: number} {
+    return {
+        min: -8
+    };
 }
