@@ -11,5 +11,10 @@ describe('stats calculator', () => {
             const output = calculateStats([2, 4, 21, -8, 53, 40]);
             expect(output.min).toEqual(-8);
         });
+
+        it('knows 53 is the maximum value', () => {
+            const output = calculateStats([2, 4, 21, -8, 53, 40]);
+            expect(output.max).toEqual(53);
+        });
     });
 })
