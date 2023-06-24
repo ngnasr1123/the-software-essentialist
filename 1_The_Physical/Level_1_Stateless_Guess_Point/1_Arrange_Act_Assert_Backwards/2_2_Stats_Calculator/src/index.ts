@@ -1,4 +1,10 @@
-export function calculateStats(sequence: number[]): { min: number, max: number, count: number} {
+export type Stats = {
+    min: number,
+    max: number,
+    count: number
+}
+
+export function calculateStats(sequence: number[]): Stats {
     return {
         min: -8,
         max: 53,
