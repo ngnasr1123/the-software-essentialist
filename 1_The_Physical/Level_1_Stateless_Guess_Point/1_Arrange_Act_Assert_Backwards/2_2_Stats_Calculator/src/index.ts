@@ -6,8 +6,9 @@ export type Stats = {
 }
 
 export function calculateStats(sequence: number[]): Stats {
+    const sortedSequence = sequence.sort();
     return {
-        min: -8,
+        min: sortedSequence[0],
         max: 53,
         count: 6,
         avg: 18.666666666667

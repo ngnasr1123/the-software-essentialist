@@ -25,4 +25,12 @@ describe('stats calculator', () => {
             expect(output.avg).toEqual(18.666666666667);
         });
     });
+
+    describe('when the sequence is 1000, 38, -88, and 50', () => {   
+        const output = calculateStats([1000, 38, -88, 50]);
+
+        it('knows -88 is the minimum value', () => {
+            expect(output.min).toEqual(-88);
+        });
+    });
 })
