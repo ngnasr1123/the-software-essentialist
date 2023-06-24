@@ -16,5 +16,10 @@ describe('stats calculator', () => {
             const output = calculateStats([2, 4, 21, -8, 53, 40]);
             expect(output.max).toEqual(53);
         });
+
+        it('knows the sequence has 6 numbers', () => {
+            const output = calculateStats([2, 4, 21, -8, 53, 40]);
+            expect(output.count).toEqual(6);
+        });
     });
 })
