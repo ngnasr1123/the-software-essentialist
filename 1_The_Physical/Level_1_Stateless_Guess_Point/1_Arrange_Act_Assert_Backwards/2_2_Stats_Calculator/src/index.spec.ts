@@ -32,5 +32,9 @@ describe('stats calculator', () => {
         it('knows -88 is the minimum value', () => {
             expect(output.min).toEqual(-88);
         });
+
+        it('knows 1000 is the maximum value', () => {
+            expect(output.max).toEqual(1000);
+        });
     });
 })
