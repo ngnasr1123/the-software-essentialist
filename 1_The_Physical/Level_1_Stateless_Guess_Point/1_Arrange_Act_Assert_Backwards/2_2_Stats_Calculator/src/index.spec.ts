@@ -6,43 +6,27 @@ describe('stats calculator', () => {
         expect(typeof output).toBe('object');
     });
 
-    describe('when the sequence is 2, 4, 21, -8, 53, and 40', () => {   
-        const output = calculateStats([2, 4, 21, -8, 53, 40]);
-
-        it('knows -8 is the minimum value', () => {
-            expect(output.min).toEqual(-8);
+    describe.each([
+        [[2, 4, 21, -8, 53, 40], { min: -8, max: 53, count: 6, avg: 18.666666666667 }],
+        [[1000, 38, -88, 50], { min: -88, max: 1000, count: 4, avg: 250 }],
+        [[300], { min: 300, max: 300, count: 1, avg: 300 }]
+    ])('when the sequence is %s', (sequence, expected) => {
+        const output = calculateStats(sequence);
+        
+        it(`knows ${expected.min} is the minimum value`, () => {
+            expect(output.min).toEqual(expected.min);
         });
 
-        it('knows 53 is the maximum value', () => {
-            expect(output.max).toEqual(53);
+        it(`knows ${expected.max} is the maximum value`, () => {
+            expect(output.max).toEqual(expected.max);
         });
 
-        it('knows the sequence has 6 numbers', () => {
-            expect(output.count).toEqual(6);
+        it(`knows the sequence has ${expected.count} numbers`, () => {
+            expect(output.count).toEqual(expected.count);
         });
 
-        it('knows 18.666666666667 is the average', () => {
-            expect(output.avg).toEqual(18.666666666667);
-        });
-    });
-
-    describe('when the sequence is 1000, 38, -88, and 50', () => {   
-        const output = calculateStats([1000, 38, -88, 50]);
-
-        it('knows -88 is the minimum value', () => {
-            expect(output.min).toEqual(-88);
-        });
-
-        it('knows 1000 is the maximum value', () => {
-            expect(output.max).toEqual(1000);
-        });
-
-        it('knows the sequence has 4 numbers', () => {
-            expect(output.count).toEqual(4);
-        });
-
-        it('knows 250 is the average', () => {
-            expect(output.avg).toEqual(250);
+        it(`knows ${expected.avg} is the average`, () => {
+            expect(output.avg).toEqual(expected.avg);
         });
     });
 })
