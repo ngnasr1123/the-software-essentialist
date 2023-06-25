@@ -2,8 +2,12 @@ import { calculateStats } from './index';
 
 describe('stats calculator', () => {
     it('it returns an object', () => {
-        const output = calculateStats([]);
+        const output = calculateStats([1]);
         expect(typeof output).toBe('object');
+    });
+
+    it('it throws an error for an empty sequence', () => {
+        expect(() => { calculateStats([]) }).toThrow("Sequence cannot be empty!");
     });
 
     describe.each([
